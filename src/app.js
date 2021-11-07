@@ -4,7 +4,7 @@ app.get("", (req, res) => {
   res.send("<h1>Weather</h1>");
 });
 app.get("/help", (req, res) => {
-  res.send("Help page");
+  res.send({ name: "Chinmay", age: 27 });
 });
 app.get("/about", (req, res) => {
   res.send("About page");
