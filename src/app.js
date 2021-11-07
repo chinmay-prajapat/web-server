@@ -33,8 +33,9 @@ app.get("/about", (req, res) => {
 });
 app.get("/help", (req, res) => {
   res.render("help", {
-    mobile: 894834939,
-    time: "9am to 9pm",
+    helpText: "This is some helpful text.",
+    title: "Help",
+    name: "Chinmay",
   });
 });
 app.get("/weather", (req, res) => {
