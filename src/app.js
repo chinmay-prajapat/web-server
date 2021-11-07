@@ -1,16 +1,24 @@
 const path = require("path");
 const express = require("express");
-console.log(__dirname);
-console.log();
+const hbs = require("hbs");
+
+//Load app
 const app = express();
 
-const publicDir = path.join(__dirname, "../public");
-const viewDir = path.join(__dirname, "../templates");
+const publicPath = path.join(__dirname, "../public");
+const viewPath = path.join(__dirname, "../templates/views");
+const partialsPath = path.join(__dirname, "../templates/partials");
+//setup dynamic templates
 
 app.set("view engine", "hbs");
-app.set("views", viewDir);
+app.set("views", viewPath);
+hbs.registerPartials(partialsPath);
 
-app.use(express.static(publicDir));
+//Static pages setup
+app.use(express.static(publicPath));
+
+//Setup routers
+
 app.get("", (req, res) => {
   res.render("index", {
     title: "Weather App",
