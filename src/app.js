@@ -5,7 +5,10 @@ console.log();
 const app = express();
 
 const publicDir = path.join(__dirname, "../public");
+const viewDir = path.join(__dirname, "../templates");
+
 app.set("view engine", "hbs");
+app.set("views", viewDir);
 
 app.use(express.static(publicDir));
 app.get("", (req, res) => {
