@@ -1,16 +1,14 @@
+const path = require("path");
 const express = require("express");
+console.log(__dirname);
+console.log();
 const app = express();
-app.get("", (req, res) => {
-  res.send("<h1>Weather</h1>");
-});
-app.get("/help", (req, res) => {
-  res.send([{ name: "Chinmay", age: 27 }, { name: "Sarah" }]);
-});
-app.get("/about", (req, res) => {
-  res.send("About page");
-});
+
+const publicDir = path.join(__dirname, "../public");
+app.use(express.static(publicDir));
+
 app.get("/weather", (req, res) => {
-  res.send("Weather");
+  res.send({ forecast: "sunny" });
 });
 
 app.listen(3000, () => {
