@@ -41,6 +41,11 @@ app.get("/help", (req, res) => {
 app.get("/weather", (req, res) => {
   res.send({ forecast: "sunny" });
 });
+app.get("/products", (req, res) => {
+  res.send({
+    products: [],
+  });
+});
 app.get("/help/*", (req, res) => {
   res.render("404", {
     title: "404",
