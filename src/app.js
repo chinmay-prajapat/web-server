@@ -45,7 +45,7 @@ app.get("/weather", (req, res) => {
       error: "Please provide address",
     });
   }
-  gecode(req.query.address, (error, data) => {
+  gecode(req.query.address, (error, data = {}) => {
     if (error) {
       return res.send({ error });
     }
