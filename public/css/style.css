@@ -43,3 +43,12 @@ header a {
     width: 250px;
 
 }
+
+input {
+    border: 1px solid #ccc;
+    padding: 8px;
+}
+
+button {
+    cursor: pointer;
+}
