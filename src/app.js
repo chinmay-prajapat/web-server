@@ -1,7 +1,8 @@
 const path = require("path");
 const express = require("express");
 const hbs = require("hbs");
-
+const gecode = require("./utils/geocode");
+const weatherStackApi = require("./utils/weatherstackApi");
 //Load app
 const app = express();
 
@@ -44,8 +45,17 @@ app.get("/weather", (req, res) => {
       error: "Please provide address",
     });
   }
-  res.send({
-    address: req.query.address,
+  gecode(req.query.address, (error, data) => {
+    if (error) {
+      return res.send({ error });
+    }
+
+    weatherStackApi(data.longitude, data.latitude, (error, weather) => {
+      if (error) {
+        return res.send({ error });
+      }
+      res.send({ weather, data });
+    });
   });
 });
 app.get("/products", (req, res) => {
