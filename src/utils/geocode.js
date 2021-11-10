@@ -1,9 +1,9 @@
 const request = require("postman-request");
-require("dotenv").config();
+
 const gecode = (address, callback) => {
   const url = `https://api.mapbox.com/geocoding/v5/mapbox.places/${encodeURIComponent(
     address
-  )}.json?access_token=${process.env.MAPBOX}&limit=1`;
+  )}.json?access_token=pk.eyJ1Ijoia2lsdmlzaCIsImEiOiJja3ZpdmdmaTcwbjV1MnBuMGx1bjgzdWJlIn0.7tV-mCgZ-rb_fzrHMVvktw&limit=1`;
   request({ url, json: true }, (err, res) => {
     if (err) {
       callback("Unable to connect with services", undefined);
