@@ -4,7 +4,7 @@ const place = document.querySelector(".p-1");
 const weather = document.querySelector(".p-2");
 
 const search = async function (input) {
-  const data = await fetch(`http://localhost:3000/weather?address=${input}`);
+  const data = await fetch(`/weather?address=${input}`);
   if (data.error) {
   }
   const renderedData = await data.json();
